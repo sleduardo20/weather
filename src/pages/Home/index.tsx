@@ -1,9 +1,9 @@
-import React, { useCallback, useState, useEffect } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import { Form } from '@unform/web';
 
 import Today from '../../components/Today';
-import Week from '../../components/Week';
+import NextDays from '../../components/NextDays';
 import Input from '../../components/Input';
 
 import api from '../../services/api';
@@ -95,6 +95,14 @@ const Home: React.FC = () => {
               maxtemp={forecast?.forecastday[0].day.maxtemp_c}
               mintemp={forecast?.forecastday[0].day.mintemp_c}
             />
+            {forecast?.forecastday.map(item => (
+              <NextDays
+                key={item.date}
+                day={item.date}
+                mintemp={item.day.mintemp_c}
+                maxtemp={item.day.maxtemp_c}
+              />
+            ))}
           </ul>
         </TopLeft>
 
