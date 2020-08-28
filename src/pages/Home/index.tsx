@@ -37,7 +37,7 @@ const Home: React.FC = () => {
     const { city } = data;
 
     try {
-      const response = await api.get(`${city}=&days=10`);
+      const response = await api.get(`blumenau=&days=10`);
       setLocation(response.data.location);
       setCurrent(response.data.current);
       setForecast(response.data.forecast);
@@ -74,7 +74,7 @@ const Home: React.FC = () => {
           <Temp>
             {current?.temp_c && <strong>{current.temp_c}°</strong>}
 
-            <img src={cold} alt="Icon" />
+            <img src={sun} alt="Icon" />
             <p>{current?.condition.text}</p>
           </Temp>
 
@@ -84,11 +84,18 @@ const Home: React.FC = () => {
                 <strong>Today</strong>
               </Option>
               <Option onClick={handleSelectedOpition} active={activeWeek}>
-                <strong>Week</strong>
+                <strong>NextDays</strong>
               </Option>
             </Options>
           </Menu>
-          <ul>{/* <Today hour="12:00" icon={sun} graus="22" /> */}</ul>
+          <ul>
+            <Today
+              sunrise={forecast?.forecastday[0].astro.sunrise}
+              sunset={forecast?.forecastday[0].astro.sunset}
+              maxtemp={forecast?.forecastday[0].day.maxtemp_c}
+              mintemp={forecast?.forecastday[0].day.mintemp_c}
+            />
+          </ul>
         </TopLeft>
 
         <TopRigth>

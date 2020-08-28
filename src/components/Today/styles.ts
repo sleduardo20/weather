@@ -4,6 +4,7 @@ export const Content = styled.div`
   width: 87%;
   padding: 0 0 8px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
 
@@ -12,14 +13,20 @@ export const Content = styled.div`
   font-weight: 600;
   color: var(--gray);
 
-  > div {
+  > strong {
+    width: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: space-between;
+    font-weight: normal;
 
-    img {
-      width: 26px;
-      height: 26px;
-      margin-right: 12px;
+    > span {
+      color: var(--primary);
+      font-weight: 600;
     }
+  }
+
+  strong + strong {
+    margin-top: 16px;
   }
 `;
