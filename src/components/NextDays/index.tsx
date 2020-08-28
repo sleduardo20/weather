@@ -44,13 +44,12 @@ const NextDays: React.FC<Props> = ({ day, maxtemp, mintemp }) => {
   }
 
   return (
-    <li>
-      <Content>
-        <strong>
-          <span>{nameDay}</span>Max. {maxtemp} {'  '} Min. {mintemp}{' '}
-        </strong>
-      </Content>
-    </li>
+    <Content>
+      <strong>
+        <span>{nameDay}</span>Max. <strong>{`${maxtemp}°`} </strong> Min.{' '}
+        <strong>{`${mintemp}°`}</strong>
+      </strong>
+    </Content>
   );
 };
 

@@ -9,19 +9,21 @@ export const Content = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 600;
-  color: var(--gray);
-
-  > div {
+  > strong {
+    width: 100%;
+    font-weight: normal;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: space-between;
+    color: var(--gray);
 
-    img {
-      width: 26px;
-      height: 26px;
-      margin-right: 12px;
+    > span {
+      color: var(--primary);
+      font-weight: 600;
+      width: 30%;
     }
+  }
+  & + & {
+    margin-top: 16px;
   }
 `;
