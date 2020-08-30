@@ -20,10 +20,10 @@ const Today: React.FC<Props> = ({ sunrise, sunset, maxtemp, mintemp }) => {
           <span>Sunset</span> {sunset}
         </strong>
         <strong>
-          <span>Max.</span> {`${maxtemp}°`}
+          <span>Max.</span> {maxtemp && `${maxtemp}°`}
         </strong>
         <strong>
-          <span>Min.</span> {`${mintemp}°`}
+          <span>Min.</span> {mintemp && `${mintemp}°`}
         </strong>
       </Content>
     </li>

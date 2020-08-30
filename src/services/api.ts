@@ -1,8 +1,6 @@
 import axios from 'axios';
 
-const api = axios.create({
+export const api = axios.create({
   baseURL:
-    'http://api.weatherapi.com/v1/forecast.json?key=93da2c4dbe254ed8bf121244202108&q=',
+    'http://api.weatherapi.com/v1/forecast.json?key=49a17211b4614e59bb5194817202808&q=',
 });
-
-export default api;

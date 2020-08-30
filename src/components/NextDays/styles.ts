@@ -5,6 +5,7 @@ export const Container = styled.div``;
 export const Content = styled.div`
   width: 87%;
   padding: 0 0 8px;
+  margin-top: 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -22,8 +23,5 @@ export const Content = styled.div`
       font-weight: 600;
       width: 30%;
     }
-  }
-  & + & {
-    margin-top: 16px;
   }
 `;

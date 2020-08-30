@@ -11,15 +11,11 @@ interface Props {
 
 const NextDays: React.FC<Props> = ({ day, maxtemp, mintemp }) => {
   const date = new Date(day);
-
-  const weekDay = getDay(date);
+  const weekDay = getDay(date) + 1;
 
   let nameDay = '';
 
   switch (weekDay) {
-    case 0:
-      nameDay = 'Sunday';
-      break;
     case 1:
       nameDay = 'Monday';
       break;
@@ -37,6 +33,9 @@ const NextDays: React.FC<Props> = ({ day, maxtemp, mintemp }) => {
       break;
     case 6:
       nameDay = 'Saturday';
+      break;
+    case 7:
+      nameDay = 'Sunday';
       break;
 
     default:

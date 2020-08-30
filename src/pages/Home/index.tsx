@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 
 import { Form } from '@unform/web';
 
@@ -6,7 +6,7 @@ import Today from '../../components/Today';
 import NextDays from '../../components/NextDays';
 import Input from '../../components/Input';
 
-import api from '../../services/api';
+import { api } from '../../services/api';
 
 import { cold, rain, rays, search, sun } from '../../styles/Icons';
 
@@ -23,21 +23,36 @@ import {
   TopRigth,
 } from './styles';
 
-import { CurrentProps, ForecastProps, LocationProps } from '../../models';
+import {
+  CurrentProps,
+  ForecastProps,
+  LocationProps,
+  ConditionProps,
+} from '../../models';
 
 const Home: React.FC = () => {
   const [activeToday, setActiveToday] = useState(true);
   const [activeWeek, setActiveWeek] = useState(false);
   const [location, setLocation] = useState<LocationProps>();
   const [current, setCurrent] = useState<CurrentProps>();
+  const [conditionLang, setConditionLang] = useState<ConditionProps>();
+  const [condition, setCondition] = useState<ConditionProps>();
   const [forecast, setForecast] = useState<ForecastProps>();
-  const [icon, setIcon] = useState();
+
+  useEffect(() => {
+    fetch('https://www.weatherapi.com/docs/conditions.json').then(
+      async response => {
+        const data = await response.json();
+        setConditionLang(data);
+      },
+    );
+  }, []);
 
   const handleSubmit = useCallback(async data => {
     const { city } = data;
 
     try {
-      const response = await api.get(`blumenau=&days=10`);
+      const response = await api.get(`${city}=&days=10`);
       setLocation(response.data.location);
       setCurrent(response.data.current);
       setForecast(response.data.forecast);
@@ -58,6 +73,18 @@ const Home: React.FC = () => {
     }
   }, [activeToday]);
 
+  useEffect(() => {
+    const filterCondition = conditionLang
+      ?.filter((item: ConditionProps) => item.code === current?.condition.code)
+      .map((item: ConditionProps) => {
+        return {
+          day: item.languages[20].day_text,
+          night: item.languages[20].night_text,
+        };
+      });
+
+    setCondition(filterCondition);
+  }, [conditionLang, current]);
   return (
     <Container>
       <Form onSubmit={handleSubmit}>
@@ -75,7 +102,7 @@ const Home: React.FC = () => {
             {current?.temp_c && <strong>{current.temp_c}°</strong>}
 
             <img src={sun} alt="Icon" />
-            <p>{current?.condition.text}</p>
+            <p>Sol</p>
           </Temp>
 
           <Menu>
@@ -89,20 +116,26 @@ const Home: React.FC = () => {
             </Options>
           </Menu>
           <ul>
-            <Today
-              sunrise={forecast?.forecastday[0].astro.sunrise}
-              sunset={forecast?.forecastday[0].astro.sunset}
-              maxtemp={forecast?.forecastday[0].day.maxtemp_c}
-              mintemp={forecast?.forecastday[0].day.mintemp_c}
-            />
-            {forecast?.forecastday.map(item => (
-              <NextDays
-                key={item.date}
-                day={item.date}
-                mintemp={item.day.mintemp_c}
-                maxtemp={item.day.maxtemp_c}
+            {activeToday && (
+              <Today
+                sunrise={forecast?.forecastday[0].astro.sunrise}
+                sunset={forecast?.forecastday[0].astro.sunset}
+                maxtemp={forecast?.forecastday[0].day.maxtemp_c}
+                mintemp={forecast?.forecastday[0].day.mintemp_c}
               />
-            ))}
+            )}
+
+            {activeWeek &&
+              forecast?.forecastday
+                .map(item => (
+                  <NextDays
+                    key={item.date}
+                    day={item.date}
+                    mintemp={item.day.mintemp_c}
+                    maxtemp={item.day.maxtemp_c}
+                  />
+                ))
+                .slice(1, 4)}
           </ul>
         </TopLeft>
 
