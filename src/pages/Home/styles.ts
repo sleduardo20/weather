@@ -168,24 +168,23 @@ export const Menu = styled.div`
 `;
 
 export const Options = styled.div`
-  width: 50%;
-  margin-left: 8px;
+  width: 90%;
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 `;
 
 export const Option = styled.div<PropsOption>`
   font-size: 18px;
-  padding: 4px;
+  padding: 0 4px 0;
   font-weight: 600;
   color: ${props => (props.active ? 'black' : 'var(--gray)')};
   display: flex;
   align-items: center;
   justify-content: center;
 
-  width: 109px;
+  width: 140px;
 
   transition: 0.3s;
 
@@ -199,7 +198,7 @@ export const Option = styled.div<PropsOption>`
     css`
       ::after {
         content: '';
-        width: 90px;
+        width: 140px;
         height: 2px;
         background: var(--primary);
         position: absolute;

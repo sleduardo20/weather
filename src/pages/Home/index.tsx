@@ -36,7 +36,7 @@ const Home: React.FC = () => {
   const [location, setLocation] = useState<LocationProps>();
   const [current, setCurrent] = useState<CurrentProps>();
   const [conditionLang, setConditionLang] = useState<ConditionProps>();
-  const [condition, setCondition] = useState<ConditionProps>();
+  const [condition, setCondition] = useState<object>();
   const [forecast, setForecast] = useState<ForecastProps>();
 
   useEffect(() => {
@@ -76,20 +76,16 @@ const Home: React.FC = () => {
   useEffect(() => {
     const filterCondition = conditionLang
       ?.filter((item: ConditionProps) => item.code === current?.condition.code)
-      .map((item: ConditionProps) => {
-        return {
-          day: item.languages[20].day_text,
-          night: item.languages[20].night_text,
-        };
-      });
+      .map((item: ConditionProps) => item.languages[20].day_text);
 
     setCondition(filterCondition);
   }, [conditionLang, current]);
+
   return (
     <Container>
       <Form onSubmit={handleSubmit}>
-        <Input name="city" placeholder="Write your city" />
-        <Button type="submit"> Search </Button>
+        <Input name="city" placeholder="Informe a cidade" />
+        <Button type="submit"> Buscar </Button>
       </Form>
       <Content>
         <TopLeft>
@@ -101,17 +97,17 @@ const Home: React.FC = () => {
           <Temp>
             {current?.temp_c && <strong>{current.temp_c}°</strong>}
 
-            <img src={sun} alt="Icon" />
-            <p>Sol</p>
+            <img src={cold} alt="Icon" />
+            <p>{condition}</p>
           </Temp>
 
           <Menu>
             <Options>
               <Option onClick={handleSelectedOpition} active={activeToday}>
-                <strong>Today</strong>
+                <strong>Hoje</strong>
               </Option>
               <Option onClick={handleSelectedOpition} active={activeWeek}>
-                <strong>NextDays</strong>
+                <strong>Próximos Dias</strong>
               </Option>
             </Options>
           </Menu>

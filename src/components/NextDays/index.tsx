@@ -17,25 +17,25 @@ const NextDays: React.FC<Props> = ({ day, maxtemp, mintemp }) => {
 
   switch (weekDay) {
     case 1:
-      nameDay = 'Monday';
+      nameDay = 'Segunda';
       break;
     case 2:
-      nameDay = 'Tuesday';
+      nameDay = 'Terça';
       break;
     case 3:
-      nameDay = 'Wednesday';
+      nameDay = 'Quarta';
       break;
     case 4:
-      nameDay = 'Thursday';
+      nameDay = 'Quinta';
       break;
     case 5:
-      nameDay = 'Friday';
+      nameDay = 'Sexta';
       break;
     case 6:
-      nameDay = 'Saturday';
+      nameDay = 'Sábado';
       break;
     case 7:
-      nameDay = 'Sunday';
+      nameDay = 'Domingo';
       break;
 
     default:
@@ -45,7 +45,7 @@ const NextDays: React.FC<Props> = ({ day, maxtemp, mintemp }) => {
   return (
     <Content>
       <strong>
-        <span>{nameDay}</span>Max. <strong>{`${maxtemp}°`} </strong> Min.{' '}
+        <span>{nameDay}</span>Máx. <strong>{`${maxtemp}°`} </strong> Mín.{' '}
         <strong>{`${mintemp}°`}</strong>
       </strong>
     </Content>
