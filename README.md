@@ -1,68 +1,43 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=800px height=200px src="https://github.com/sleduardo20/weather/blob/master/src/assets/img/03.png" alt="Project logo"></a>
+ <img width=800px height=300px src="https://github.com/sleduardo20/weather/blob/master/src/assets/img/03.png" alt="Project logo"></a>
 </p>
 
-<h3 align="center">Clima</h3>
+<h3 align="center">Projeto Previsão do Tempo</h3>
 
 
 ---
 
-<p align="center"> Few lines describing your project.
-    <br>
-</p>
 
-## 📝 Table of Contents
 
-- [About](#about)
-- [Getting Started](#getting_started)
-- [Deployment](#deployment)
-- [Usage](#usage)
-- [Built Using](#built_using)
-- [TODO](../TODO.md)
-- [Contributing](../CONTRIBUTING.md)
-- [Authors](#authors)
-- [Acknowledgments](#acknowledgement)
 
-## 🧐 About <a name = "about"></a>
+## 🧐 Sobre <a name = "about"></a>
 
-Write about 1-2 paragraphs describing the purpose of your project.
+Projeto criado com objetivo de praticar ReactJS aplicandos os conceitos de estado e propriedade.
 
-## 🏁 Getting Started <a name = "getting_started"></a>
+## 🏁 Instalação <a name = "getting_started"></a>
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+Faça o clone de repositório.
 
 ```
-Give examples
+git clone https://github.com/sleduardo20/weather.git
 ```
 
-### Installing
-
-A step by step series of examples that tell you how to get a development env running.
-
-Say what the step will be
-
+Instale as dependências
 ```
-Give the example
+yarn start
 ```
 
-And repeat
+## ⛏️ Tecnologias e Libs utilizadas <a name = "built_using"></a>
 
-```
-until finished
-```
+- [ReactJS](https://reactjs.org/docs/getting-started.html) - Front End
+- [Styled-Components](https://styled-components.com/docs) - Estilização
+- [Typescript](https://www.typescriptlang.org/docs)
+- [Date-Fns](https://date-fns.org/docs/Getting-Started) - Date-Fns para Buscar os dias da Semana
+- [API](https://www.weatherapi.com/docs/) - Weather api
 
+## ✍️ Autor <a name = "authors"></a>
 
+- [@sleduardo20](https://github.com/sleduardo20)
 
-## ⛏️ Built Using <a name = "built_using"></a>
-
-- [MongoDB](https://www.mongodb.com/) - Database
-- [Express](https://expressjs.com/) - Server Framework
-- [VueJs](https://vuejs.org/) - Web Framework
-- [NodeJs](https://nodejs.org/en/) - Server Environment
-
-## ✍️ Authors <a name = "authors"></a>
-
-- [@kylelobo](https://github.com/kylelobo) - Idea & Initial work
-
-See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project.
+Fique a vontade para contribuir e melhorar a aplicação.
