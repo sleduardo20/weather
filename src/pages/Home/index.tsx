@@ -94,7 +94,7 @@ const Home: React.FC = () => {
           <Temp>
             {current?.temp_c && <strong>{current.temp_c}°</strong>}
 
-            <Icon name={condition} />
+            {forecast && <Icon name={condition} />}
             <p>{condition}</p>
           </Temp>
 
@@ -109,7 +109,7 @@ const Home: React.FC = () => {
             </Options>
           </Menu>
           <ul>
-            {activeToday && (
+            {activeToday && forecast && (
               <Today
                 sunrise={forecast?.forecastday[0].astro.sunrise}
                 sunset={forecast?.forecastday[0].astro.sunset}

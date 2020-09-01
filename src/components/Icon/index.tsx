@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { Container } from './styles';
 
-import { cold, cloud, rain, rays, sun } from '../../styles/Icons';
+import { cold, cloud, rain, rays, sun, foggy } from '../../styles/Icons';
 
 interface Props {
   name?: string;
@@ -27,7 +27,7 @@ const Icon: React.FC<Props> = ({ name }) => {
         setImg(cloud);
         break;
       case 'Neblina':
-        setImg(sun);
+        setImg(foggy);
         break;
       case 'Possibilidade de chuva irregular':
         setImg(rain);
@@ -51,10 +51,10 @@ const Icon: React.FC<Props> = ({ name }) => {
         setImg(cold);
         break;
       case 'Nevoeiro':
-        setImg(sun);
+        setImg(foggy);
         break;
       case 'Nevoeiro gelado':
-        setImg(sun);
+        setImg(cold);
         break;
       case 'Chuvisco irregular':
         setImg(rain);
