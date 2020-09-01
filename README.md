@@ -13,7 +13,7 @@
 
 ## 🧐 Sobre <a name = "about"></a>
 
-Projeto criado com objetivo de praticar ReactJS aplicandos os conceitos de estado e propriedade.
+Projeto criado com objetivo de praticar ReactJS consumindo a API (www.weatherapi.com)  e aplicando os conceitos de estado e propriedade.
 
 ## 🏁 Instalação <a name = "getting_started"></a>
 
