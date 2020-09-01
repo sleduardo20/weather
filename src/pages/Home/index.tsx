@@ -5,10 +5,9 @@ import { Form } from '@unform/web';
 import Today from '../../components/Today';
 import NextDays from '../../components/NextDays';
 import Input from '../../components/Input';
+import Icon from '../../components/Icon';
 
 import { api } from '../../services/api';
-
-import { cold, rain, rays, search, sun } from '../../styles/Icons';
 
 import {
   Container,
@@ -36,7 +35,7 @@ const Home: React.FC = () => {
   const [location, setLocation] = useState<LocationProps>();
   const [current, setCurrent] = useState<CurrentProps>();
   const [conditionLang, setConditionLang] = useState<ConditionProps>();
-  const [condition, setCondition] = useState<object>();
+  const [condition, setCondition] = useState();
   const [forecast, setForecast] = useState<ForecastProps>();
 
   useEffect(() => {
@@ -48,6 +47,14 @@ const Home: React.FC = () => {
     );
   }, []);
 
+  useEffect(() => {
+    const filterCondition = conditionLang
+      ?.filter((item: ConditionProps) => item.code === current?.condition.code)
+      .map((item: ConditionProps) => item.languages[20].day_text);
+
+    setCondition(filterCondition);
+  }, [conditionLang, current]);
+
   const handleSubmit = useCallback(async data => {
     const { city } = data;
 
@@ -56,8 +63,6 @@ const Home: React.FC = () => {
       setLocation(response.data.location);
       setCurrent(response.data.current);
       setForecast(response.data.forecast);
-
-      console.log(response.data);
     } catch (error) {
       alert('City not found!!!');
     }
@@ -72,14 +77,6 @@ const Home: React.FC = () => {
       setActiveToday(false);
     }
   }, [activeToday]);
-
-  useEffect(() => {
-    const filterCondition = conditionLang
-      ?.filter((item: ConditionProps) => item.code === current?.condition.code)
-      .map((item: ConditionProps) => item.languages[20].day_text);
-
-    setCondition(filterCondition);
-  }, [conditionLang, current]);
 
   return (
     <Container>
@@ -97,7 +94,7 @@ const Home: React.FC = () => {
           <Temp>
             {current?.temp_c && <strong>{current.temp_c}°</strong>}
 
-            <img src={cold} alt="Icon" />
+            <Icon name={condition} />
             <p>{condition}</p>
           </Temp>
 

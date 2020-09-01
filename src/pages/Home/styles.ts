@@ -144,11 +144,6 @@ export const Temp = styled.div`
     font-weight: 400;
   }
 
-  > img {
-    width: 85px;
-    height: 85px;
-    margin-top: 2px;
-  }
   > p {
     max-width: 300px;
     font-size: 26px;
