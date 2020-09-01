@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=800px height=200px src="https://github.com/sleduardo20/weather/blob/master/src/assets/img/03.png" alt="Project logo"></a>
+ <img width=800px height=500px src="https://github.com/sleduardo20/weather/blob/master/src/assets/img/03.png" alt="Project logo"></a>
 </p>
 
 <h3 align="center">Projeto Previsão do Tempo</h3>
@@ -13,7 +13,7 @@
 
 ## 🧐 Sobre <a name = "about"></a>
 
-Projeto criado com objetivo de praticar ReactJS aplicandos os conceitos de estado e propriedade.
+Projeto criado com objetivo de praticar ReactJS consumindo a API (www.weatherapi.com)  e aplicando os conceitos de estado e propriedade.
 
 ## 🏁 Instalação <a name = "getting_started"></a>
 
