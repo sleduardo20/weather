@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=1000px height=500px src="https://github.com/sleduardo20/weather/blob/master/src/assets/img/03.png" alt="Project logo"></a>
+ <img width=800px height=500px src="https://github.com/sleduardo20/weather/blob/master/src/assets/img/03.png" alt="Project logo"></a>
 </p>
 
 <h3 align="center">Projeto Previsão do Tempo</h3>
