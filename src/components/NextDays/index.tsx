@@ -1,5 +1,5 @@
 import React from 'react';
-import { getDay, getDate } from 'date-fns';
+import { getDay } from 'date-fns';
 
 import { Content } from './styles';
 
