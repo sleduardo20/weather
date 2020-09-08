@@ -45,8 +45,10 @@ const NextDays: React.FC<Props> = ({ day, maxtemp, mintemp }) => {
   return (
     <Content>
       <strong>
-        <span>{nameDay}</span>Máx. <strong>{`${maxtemp}°`} </strong> Mín.{' '}
-        <strong>{`${mintemp}°`}</strong>
+        <span>
+          {nameDay} Mín.<strong>{`${mintemp}°`}</strong>{' '}
+        </span>
+        Máx. <strong>{`${maxtemp}°`} </strong>
       </strong>
     </Content>
   );
