@@ -27,7 +27,7 @@ import {
   ForecastProps,
   LocationProps,
   ConditionProps,
-} from '../../models';
+} from '../../@types';
 
 const Home: React.FC = () => {
   const [activeToday, setActiveToday] = useState(true);
